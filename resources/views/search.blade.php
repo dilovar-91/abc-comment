@@ -60,9 +60,8 @@
                                                         <div class="actions-primary">
                                                             <a href="/company/{{$company->id}}" title="" data-original-title="Все отзывы">Все отзывы</a>
                                                         </div>
-                                                        <div class="actions-secondary">
-                                                            <a href="#" data-toggle="modal" data-target="#myModal" title="" data-original-title="Quick View"><i class="fa fa-heart-o"></i></a>
-                                                            <a href="/company/{{$company->id}}" title="" data-original-title="Details"><i class="fa fa-signal"></i></a>
+                                                        <div class="actions-secondary">                                                            
+                                                            <a href="/company/{{$company->id}}" title="" data-original-title="Инфо"><i class="fa fa-signal"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -87,8 +86,7 @@
                                     <div class="row single-product">         
                                         <!-- Product Image Start -->
                                         <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12">
-                                            <div class="pro-img">
-                                            
+                                            <div class="pro-img">                                            
                                                 @for ($i=0; $i < count($company->pictures); $i++)
                                                     <img class="{{$i === 0 ? 'primary-img' : 'secondary-img'}}" style="height: 180px; width: 100%;" src="/img/companies/{{$company->pictures[$i] ?? 'noImg.jpg'}}" style="" alt="single-product">   
                                                 @endfor                                                
@@ -111,9 +109,8 @@
                                                     <div class="actions-primary">
                                                         <a href="/company/{{$company->id}}" title="Читать отзывы"></a>
                                                     </div>
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="fa fa-heart-o"></i></a>
-                                                        <a href="/company/{{$company->id}}" title="Details"><i class="fa fa-signal"></i></a>
+                                                    <div class="actions-secondary">                                                        
+                                                        <a href="/company/{{$company->id}}" title="Инфо"><i class="fa fa-signal"></i></a>
                                                     </div>
                                                 </div>
                                             </div>

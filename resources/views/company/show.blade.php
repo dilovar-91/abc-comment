@@ -34,14 +34,15 @@
                         <!-- Thumbnail Description Start -->
                         <div class="col-lg-7">
                             <div class="thubnail-desc fix">
+                           
                                 <h3 class="product-header">{{$company->title}}</h3>
                                 <div class="rating-summary fix mtb-10">
                                     <div class="rating">
-                                    <star-rating  :rating="{{$company->rating_average}}" :increment="0.01" :star-size="15" :read-only="true" border-color="orange" active-color="orange" :show-rating="false" text-class="custom-text"></star-rating>
-                                    </div>
+                                    <star-rating  :rating="{{$avg_rating ?? 0}}" :increment="0.01" :star-size="15" :read-only="true" border-color="orange" active-color="orange" :show-rating="false" text-class="custom-text"></star-rating>
+                                    </div>                                    
                                     <div class="rating-feedback">
-                                        <a href="#review">({{count($company->reviews)}} отзыв)</a>                                       
-                                        <a href="#addreview">Написать отзыв</a>
+                                        <a href="#review">({{count($reviews)}} отзыв)</a>                                       
+                                        <a href="#addreview">Написать отзывов</a>
                                     </div>
                                 </div>
                                 <div class="pro-price mtb-10">

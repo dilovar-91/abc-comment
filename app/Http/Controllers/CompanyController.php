@@ -46,12 +46,16 @@ class CompanyController extends Controller
 
     public function show($id){
           
-        $company = Company::whereNull('companies.deleted_at')->leftJoin('reviews', 'reviews.company_id', '=', 'companies.id')->where('reviews.published', 1)->select('companies.*', DB::raw('CAST(AVG(rating) as UNSIGNED) as rating_average'))->groupBy('id')->orderBy('rating_average', 'DESC')->findorfail($id);
+        //$company = Company::whereNull('companies.deleted_at')->with('reviews', 'reviews.company_id', '=', 'companies.id')->where('reviews.published', 1)->select('companies.*', DB::raw('CAST(AVG(rating) as UNSIGNED) as rating_average'))->groupBy('id')->orderBy('rating_average', 'DESC')->findorfail($id);
+        //$company = Company::whereNull('companies.deleted_at')->with('reviews')->select('companies.*', DB::raw('CAST(AVG(rating) as UNSIGNED) as rating_average'))->groupBy('id')->orderBy('rating_average', 'DESC')->findorfail($id);
+        $company = Company::whereNull('deleted_at')->findorfail($id);
+       
         if (isset ($company)) {
             SEO::setDescription('Отзывы, обзоры о '. $company->title );
             SEOMeta::addKeyword([$company->keywords]);
             SEO::opengraph()->addProperty('type', 'review');
-            $reviews = Review::all()->where('company_id', $id)->where('published', '1')->sortByDesc('created_at');             
+            $reviews = Review::all()->where('company_id', $id)->where('published', '1')->sortByDesc('created_at');
+            $avg_rating = $company->reviews()->where('published', 1)->avg('rating');             
             $localBusiness = Schema::localBusiness()
                 ->name("Отзывы ". $company->title)
                 ->email($company->email)
@@ -63,7 +67,7 @@ class CompanyController extends Controller
                 ->contactPoint(Schema::contactPoint('ContactPoint')->contactType('customer service ')->areaServed('RU')->url($company->website))
                 ->openingHoursSpecification(Schema::openingHoursSpecification('openingHoursSpecification')->dayOfWeek(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] )->opens("09:00")->closes("21:00")
                     );            
-            return view('company.show', compact('company', 'reviews', 'localBusiness'));
+            return view('company.show', compact('company', 'reviews', 'localBusiness', 'avg_rating'));
         }
 
         else abort(404);
