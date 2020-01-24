@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Главная')
+@section('title', 'О сайте')
 @section('content')  
  <!-- Breadcrumb Start -->
  <div class="breadcrumb-area mt-30">

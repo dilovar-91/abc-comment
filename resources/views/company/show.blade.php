@@ -1,6 +1,5 @@
-
 @extends('layouts.main')
-@section('title', 'Поиск организации по продаже авто')
+@section('title', $company->title)
 @section('content') 
  <!-- Product Thumbnail Start -->
 <div class="main-product-thumbnail ptb-45">
