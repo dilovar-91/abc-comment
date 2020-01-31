@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('title', $company->title)
 @section('content') 
  <!-- Product Thumbnail Start -->
@@ -100,7 +100,7 @@
                                             {{$review->created_at->format('d-m-Y H:m')}}
                                             </div>                                            
                                         </li>
-                                        <!-- Single Review List End -->                                        
+                                        <!-- Single Review List End -->   
                                     </ul>
                                 </div>
                                 @endforeach

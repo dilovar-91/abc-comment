@@ -54,7 +54,7 @@ class HomeController extends Controller
         SEO::setDescription("Отзывы, рейтинги салонов");
         SEOMeta::addKeyword(["Отзывы, официальные дилеры, дилеры, обман"]);            
         $searchbar = true;        
-        return view('welcome', compact('companies', 'articles', 'type', 'sort'));
+        return view('index', compact('companies', 'articles', 'type', 'sort'));
         
     }
 

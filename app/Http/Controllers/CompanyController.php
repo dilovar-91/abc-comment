@@ -67,7 +67,7 @@ class CompanyController extends Controller
                 ->contactPoint(Schema::contactPoint('ContactPoint')->contactType('customer service ')->areaServed('RU')->url($company->website))
                 ->openingHoursSpecification(Schema::openingHoursSpecification('openingHoursSpecification')->dayOfWeek(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] )->opens("09:00")->closes("21:00")
                     );            
-            return view('company.show', compact('company', 'reviews', 'localBusiness', 'avg_rating'));
+            return view('company.detail', compact('company', 'reviews', 'localBusiness', 'avg_rating'));
         }
 
         else abort(404);

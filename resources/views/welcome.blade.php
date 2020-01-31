@@ -148,9 +148,7 @@
                                 @endif
                                 <!-- #list view End -->
                                 <!-- Product Pagination Info -->
-                                <?php 
-                                $from = $companies->currentPage() * $companies->perPage();
-                                ?>
+                                
                                 <div class="product-pagination mb-20 pb-15">
                                     <span class="grid-item-list">Организации {{($companies->currentpage()-1)*$companies->perpage()+1}}-{{$companies->currentpage()*$companies->perpage()}} от {{$companies->total()}}</span>
                                 </div>                                                                                               

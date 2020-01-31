@@ -1,30 +1,33 @@
 <template>
-<div class="review border-default universal-padding mt-30" id="addreview">
-                                    <h2 class="review-title mb-30">Написать отзыв</h2>
-                                    <p class="review-mini-title">Ваш отзыв</p>
-                                    <ul class="review-list">                                       
-                                        <li>
-                                            <star-rating v-model="rating" :increment="0.5" v-bind:star-size="30" text-class="custom-text"></star-rating>
-                                        </li>                                        
-                                    </ul>                                    
-                                    <div class="riview-field mt-40">
-                                        <form autocomplete="off" @submit.prevent="setRating" method="POST">
-                                            <div class="form-group">
-                                                <label class="req" for="sure-name">Имя</label>
-                                                <input type="text" class="form-control" id="sure-name" v-model="review.author" required="required">
+<div class="ratting-form-wrapper fix" id="addreview">
+                                        <h3>Добавить отзыв</h3>
+                                        <form @submit.prevent="setRating" method="POST">
+                                            <div class="ratting-form row">
+                                                <div class="col-12 mb-15">
+                                                    <h5>Рейтинг:</h5>
+                                                    <div class="ratting-star fix">
+                                                      <star-rating v-model="rating" :increment="0.5" v-bind:star-size="30" text-class="custom-text"></star-rating>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12 mb-15">
+                                                    <label for="name">Ваше имя:</label>
+                                                    <input id="name" placeholder="Имя" type="text" v-model="review.author" required="required">
+                                                </div>
+                                                <div class="col-md-6 col-12 mb-15">
+                                                    <label for="name">Заголовок:</label>
+                                                    <input id="title" placeholder="Заголовок отзыва" type="text" v-model="review.title" required="required">
+                                                </div>                                                
+                                                <div class="col-12 mb-15">
+                                                    <label for="your-review">Ваш отзыв:</label>
+                                                    <textarea name="review" id="your-review"
+                                                    placeholder="Напишите ваш отзыв" required="required" v-model="review.text"></textarea>
+                                                </div>
+                                                <div class="col-12">
+                                                    <input value="Добавить отзыв" type="submit">
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="req" for="subject">Заголовок отзыва</label>
-                                                <input type="text" class="form-control" id="subject" v-model="review.title" required="required">
-                                            </div>                                            
-                                            <div class="form-group">
-                                                <label class="req" for="comments">Отзыв</label>
-                                                <textarea class="form-control" rows="5" id="comments" required="required" v-model="review.text"></textarea>
-                                            </div>
-                                            <button type="submit" class="customer-btn">Отправить</button>
                                         </form>
-                                    </div>
-                                </div>
+</div>
 </template>
 <script>
 export default{

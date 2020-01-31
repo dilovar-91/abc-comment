@@ -1,55 +1,78 @@
-@extends('layouts.main')
-@section('title', 'Контакты')
-@section('content')  
-              <!-- Breadcrumb Start -->
- <div class="breadcrumb-area mt-30">
-            <div class="container">
-                <div class="breadcrumb">
-                    <ul class="d-flex align-items-center">
-                        <li><a href="/">Главная</a></li>
-                        <li class="active"><a href="/contact">Контакты</a></li>
-                    </ul>
+@extends('layouts.app')
+@section('title', 'Обратная связь')
+@section('content')    
+        <div class="breadcrumb-area pt-10 pb-10 border-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--=======  breadcrumb content  =======-->
+                    
+                    <div class="breadcrumb-content">
+                        <ul>
+                            <li class="has-child"><a href="index.html">Главная</a></li>
+                            <li>Обратная связь</li>
+                        </ul>
+                    </div>
+                    
+                    <!--=======  End of breadcrumb content  =======-->
                 </div>
             </div>
-            <!-- Container End -->
         </div>
-        <!-- Breadcrumb End -->
-        <!-- Contact Email Area Start -->
-        <div class="contact-area ptb-45">
-            <div class="container">
-                <h3 class="mb-20">Пишите нам</h3>
-                <p class="text-capitalize mb-20">Напишите ваши пожелание мы обязательно ответим.</p>
-                <form id="contact-form" class="contact-form" action="/contact" method="post">
-                    <div class="address-wrapper row">
-                        <div class="col-md-12">
-                            <div class="address-fname">
-                                <input class="form-control" type="text" name="name" placeholder="Имя">
-                            </div>
+    </div>
+   
+    <div class="page-section mt-30">
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-5 offset-lg-1 col-md-12 mb-sm-45 order-1 order-lg-2 mb-md-45">
+                    <!--=======  contact page side content  =======-->
+                    
+                    <div class="contact-page-side-content">                                            
+                        <div class="single-contact-block">
+                            <h4><i class="fa fa-envelope-o"></i> Email</h4>
+                            <p>info@domain.com</p>
                         </div>
-                        <div class="col-md-12">
-                            <div class="address-email">
-                                <input class="form-control" type="email" name="email" placeholder="Email">
-                            </div>
-                        </div>                        
-                        <div class="col-md-12">
-                            <div class="address-subject">
-                                <input class="form-control" type="text" name="subject" placeholder="Тема">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="address-textarea">
-                                <textarea name="message" class="form-control" placeholder="Напишите ваше сообщение"></textarea>
-                            </div>
-                        </div>
+                        
+                        <!--=======  End of single contact block  =======-->
                     </div>
-                    <p class="form-message"></p>
-                    <div class="footer-content mail-content clearfix">
-                        <div class="send-email float-md-right">
-                            <input value="Отправить" class="return-customer-btn" type="submit">
+                    
+                    <!--=======  End of contact page side content  =======-->
+
+                </div>
+                <div class="col-lg-6 col-md-12 order-2 order-lg-1">
+                    <!--=======  contact form content  =======-->
+                    
+                    <div class="contact-form-content">
+                        <h3 class="contact-page-title">Напишите нам</h3>
+
+                        <div class="contact-form">
+                            <form  id="contact-form" action="/contact" method="post">
+                                <div class="form-group">
+                                    <label>Ваше имя <span class="required">*</span></label>
+                                    <input type="text" name="customerName" id="customername" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ваш Email <span class="required">*</span></label>
+                                    <input type="email" name="customerEmail" id="customerEmail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Тема</label>
+                                    <input type="text" name="contactSubject" id="contactSubject">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ваше сообщение</label>
+                                    <textarea name="contactMessage" id="contactMessage" ></textarea>
+                                </div>
+                                <div class="form-group mb-0">
+                                    <button type="submit" value="submit" id="submit" class="theme-button contact-button" name="submit">Отправить</button>
+                                </div>
+                            </form>
                         </div>
+                        <p class="form-messege pt-10 pb-10 mt-10 mb-10"></p>
                     </div>
-                </form>
+                    
+                    <!--=======  End of contact form content =======-->
+                </div>
             </div>
         </div>
-        <!-- Contact Email Area End -->
+    </div>
 @endsection

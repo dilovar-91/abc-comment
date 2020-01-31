@@ -17,5 +17,5 @@ Route::get('/about', [HomeController::class, 'uses' => 'HomeController@about'])-
 Route::get('/search', [CompanyController::class, 'uses' => 'CompanyController@search'])->name('search');
 Route::get('/contact', [HomeController::class, 'uses' => 'HomeController@contact'])->name('contact');
 Route::post('/contact', [HomeController::class, 'uses' => 'HomeController@contact'])->name('contact');
-Route::get('/rules', [HomeController::class, 'uses' => 'HomeController@rules'])->name('rules');
+Route::get('/privacy', [HomeController::class, 'uses' => 'HomeController@rules'])->name('rules');
 Route::get('/company/{id}', [CompanyController::class, 'uses' => 'CompanyController@show'])->name('show');

@@ -1,55 +1,67 @@
-        <!-- Footer Area Start Here -->
-        <footer class="white-bg pt-45">
-            <!-- Footer Top Start -->
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-                        <!-- Single Footer Start -->
-                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
-                            <div class="single-footer mb-sm-40">
-                                <h3 class="footer-title">Страницы</h3>
-                                <div class="footer-content">
-                                    <ul class="footer-list">
-                                        <li><a href="/rules">Политика сайта</a></li>
-                                        <li><a href="/contact">Контакты</a></li>
-                                    </ul>
+<div class="footer-area">
+        <div class="container">
+            <div class="row mb-40">
+                <div class="col-lg-12">
+                    <div class="footer-content-wrapper border-top pt-40">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="single-footer-widget">
+                                    <div class="footer-logo mb-25">
+                                        <img src="/assets/img/logo-alula2.png" class="img-fluid" alt="">
+                                    </div>
+            
+                                    <div class="footer-text-block mb-10">
+                                        <p class="footer-text-block__content">Достоверные мнение и информации об автосалонах России.</p>
+                                    </div>
+            
+                                    <div class="footer-text-block mb-10">
+                                        <h5 class="footer-text-block__title">Есть вопросы?</h5>
+                                        <p class="footer-text-block__content">Email: info@dodocar.ru</p>
+                                    </div>            
+                                    <div class="footer-social-icon-block">
+                                        <ul>
+                                            <li><a class="facebook-icon" href="//www.facebook.com"><i class="ion-social-facebook"></i></a></li>                                            
+                                            <li><a class="instagram-icon" href="//www.instagram.com"><i class="ion-social-instagram-outline"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+            
+                                     
+                            <div class="col-lg-4 col-md-6 mt-md-30 mt-sm-30">
+                                <div class="single-footer-widget">
+                                    <h5 class="montserrat-footer-widget-title">Информация</h5>            
+                                    <div class="footer-navigation">
+                                        <nav>
+                                            <ul>                                                
+                                                <li><a href="/about">О Сайте</a></li>
+                                                <li><a href="/privacy">Политика конфиденциальности</a></li>
+                                                <li><a href="/contact">Обратная связь</a></li>                                                
+                                            </ul>
+                                        </nav>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Single Footer Start -->
-                       
-                        <!-- Single Footer Start -->
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-footer">
-                                <div class="logo-footer">
-                                    <a href="/"><img src="/img/logo/logo2.png" alt="footer-logo"></a>
-                                </div>
-                                <div class="footer-content">
-                                    <p>Список организации по продаже авто и контактная информация, отзывы о них.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Footer Start -->
                     </div>
-                    <!-- Row End -->
                 </div>
-                <!-- Container End -->
             </div>
-            <!-- Footer Top End -->
-            <!-- Footer Bottom Start -->
-            <div class="footer-bottom off-white-bg ptb-25">
-                <div class="container">
-                     <div class="col-sm-12">
-                         <div class="row justify-content-md-between justify-content-center footer-bottom-content">                    
-                            <p>Copyright © {{date('Y')}} <a href="/">{{ config('app.name')}}</a> Все права защищены.</p>
-                            
-                         </div>
-                         <!-- Row End -->
-                     </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright-text-area">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 text-center text-md-left mb-sm-15">
+                                <div class="copyright-text">
+                                    <p>Copyright © {{date('Y')}} <a href="/">{{ config('app.name')}}</a> Все права защищены.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- Container End -->
             </div>
-            <!-- Footer Bottom End -->
-        </footer>
-        <!-- Footer Area End Here -->
+        </div>
+    </div>
+
+    
+    
        
