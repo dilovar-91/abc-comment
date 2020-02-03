@@ -41,7 +41,7 @@ class CompanyController extends Controller
         SEO::setDescription("Отзывы, рейтинги салонов");
         SEOMeta::addKeyword(["Отзывы, официальные дилеры, дилеры, обман"]);            
         $searchbar = true;
-        return view('search', compact('companies', 'articles', 'type', 'search', 'city_id'));
+        return view('search', compact('companies', 'type', 'search', 'city_id'));
     }
 
     public function show($id){

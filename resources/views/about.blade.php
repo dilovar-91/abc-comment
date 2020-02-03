@@ -13,7 +13,7 @@
                 <div class="about-content col-lg-6">
                     <div class="row">
                         <div class="col-12 mb-50">
-                            <h1>ДОБРО ПОЖАЛОВАТЬ В <span>ALULA.</span></h1>
+                            <h1>ДОБРО ПОЖАЛОВАТЬ В <span>ABC-COMMENT.RU</span></h1>
                             <p>Данный портал отражает список автосалонов и контактная информация, отзывы о них.</p>
                         </div>
                     </div>

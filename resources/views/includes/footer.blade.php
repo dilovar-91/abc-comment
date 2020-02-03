@@ -7,7 +7,7 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="single-footer-widget">
                                     <div class="footer-logo mb-25">
-                                        <img src="/assets/img/logo-alula2.png" class="img-fluid" alt="">
+                                        <img src="/assets/img/logo-footer.png" class="img-fluid" alt="">
                                     </div>
             
                                     <div class="footer-text-block mb-10">
@@ -16,7 +16,7 @@
             
                                     <div class="footer-text-block mb-10">
                                         <h5 class="footer-text-block__title">Есть вопросы?</h5>
-                                        <p class="footer-text-block__content">Email: info@dodocar.ru</p>
+                                        <p class="footer-text-block__content">Email: info@abc-comment.ru</p>
                                     </div>            
                                     <div class="footer-social-icon-block">
                                         <ul>
