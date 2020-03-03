@@ -12,6 +12,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('admin.home');
     $router->resource('companies', CompanyController::class);
+    $router->resource('reviews', ReviewController::class);
 	
 	
 	    // api routes for admin panel

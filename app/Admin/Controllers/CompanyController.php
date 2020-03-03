@@ -17,8 +17,7 @@ class CompanyController extends AdminController
      *
      * @var string
      */
-    protected $title = 'КОмпании';
-
+    protected $title = 'Компании';
     /**
      * Make a grid builder.
      *
@@ -27,30 +26,22 @@ class CompanyController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Company());
-
-        $grid->column('id', __('Id'));
-        $grid->column('title', __('Title'));
-        $grid->column('slug', __('Slug'));
-        $grid->column('description', __('Description'));
-        $grid->column('adress', __('Adress'));
-        $grid->column('tell', __('Tell'));
-        $grid->column('website', __('Website'));
-        $grid->column('job_schedule', __('Job schedule'));
-        $grid->column('email', __('Email'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
-        $grid->column('deleted_at', __('Deleted at'));
-        $grid->column('active', __('Active'));
+        $grid->column('id', __('№'));
+        $grid->column('title', __('Заголовок'));
+        $grid->description('Описание')->display(function($text) {
+            return str_limit($text, 15, '...');
+        });        
+        $grid->column('tell', __('Телефон'));
+        $grid->column('website', __('Сайт'));
+        $grid->column('job_schedule', __('График'));       
+        $grid->column('active', __('Состоние'));
         $grid->city_id(__('Город'))->display(function($city_id) {
             return \App\Models\City::find($city_id)->name;
             });
-        $grid->column('metro_id', __('Metro id'));
-        $grid->column('latitude', __('Latitude'));
-        $grid->column('longitude', __('Longitude'));
-        $grid->column('keywords', __('Keywords'));
-        $grid->column('pictures', __('Pictures'));
-        $grid->column('rand_id', __('Rand id'));
-
+        $grid->metro_id(__('Метро'))->display(function($metro_id) {
+            return \App\Models\Metro::find($metro_id)->name;
+            });
+        $grid->column('metro_id', __('Метро'));        
         return $grid;
     }
 
@@ -63,28 +54,25 @@ class CompanyController extends AdminController
     protected function detail($id)
     {
         $show = new Show(Company::findOrFail($id));
-
-        $show->field('id', __('Id'));
-        $show->field('title', __('Title'));
+        $show->field('id', __('№'));
+        $show->field('title', __('Заголовок'));
         $show->field('slug', __('Slug'));
         $show->field('description', __('Description'));
         $show->field('adress', __('Adress'));
-        $show->field('tell', __('Tell'));
-        $show->field('website', __('Website'));
-        $show->field('job_schedule', __('Job schedule'));
+        $show->field('tell', __('Телефон'));
+        $show->field('website', __('Сайт'));
+        $show->field('job_schedule', __('График'));
         $show->field('email', __('Email'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
         $show->field('deleted_at', __('Deleted at'));
-        $show->field('active', __('Active'));
-        $show->field('category_id', __('Category id'));
-        $show->field('city_id', __('City id'));
-        $show->field('metro_id', __('Metro id'));
+        $show->field('active', __('Состояние'));
+        $show->field('category_id', __('Category id'));        
+        $show->field('metro_id', __('Метро'));
         $show->field('latitude', __('Latitude'));
         $show->field('longitude', __('Longitude'));
         $show->field('keywords', __('Keywords'));
-        $show->field('pictures', __('Pictures'));
-        $show->field('rand_id', __('Rand id'));
+        $show->field('pictures', __('Pictures'));       
 
         return $show;
     }
@@ -97,23 +85,22 @@ class CompanyController extends AdminController
     protected function form()
     {
         $form = new Form(new Company());
-
-        $form->text('title', __('Title'));
+        $form->text('title', __('Заголовок'));
         $form->text('slug', __('Slug'));
         $form->textarea('description', __('Description'));
         $form->text('adress', __('Adress'));
-        $form->text('tell', __('Tell'));
-        $form->text('website', __('Website'));
-        $form->text('job_schedule', __('Job schedule'));
+        $form->text('tell', __('Телефон'));
+        $form->text('website', __('Сайт'));
+        $form->text('job_schedule', __('График'));
         $form->email('email', __('Email'));
-        $form->switch('active', __('Active'))->default(1);        
+        $form->switch('active', __('Состояние'))->default(1);        
         $form->select('city_id', 'Город')->options(function ($id) {
             $city = City::find($id);        
             if ($city) {
                 return [$city->id => $city->name];
             }
         })->ajax('/admin/api/cities');
-		$form->select('metro_id', __('admin.metro'))->options(function ($id) {
+		$form->select('metro_id', __('Метро'))->options(function ($id) {
             $metro = Metro::find($id);        
             if ($metro) {
                 return [$metro->id => $metro->name];
@@ -121,10 +108,8 @@ class CompanyController extends AdminController
         })->ajax('/admin/api/metro'); 
         $form->text('latitude', __('Latitude'));
         $form->text('longitude', __('Longitude'));
-        $form->text('keywords', __('Keywords'));
-        //$form->text('pictures', __('Pictures'));
-		$form->multipleImage('pictures', __('Рисунок'))->sortable()->removable();
-        //$form->number('rand_id', __('Rand id'));
+        $form->text('keywords', __('Keywords'));        
+		$form->multipleImage('pictures', __('Рисунок'))->sortable()->removable();       
 
         return $form;
     }
