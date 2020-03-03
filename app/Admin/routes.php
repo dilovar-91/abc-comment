@@ -12,5 +12,12 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('admin.home');
     $router->resource('companies', CompanyController::class);
+	
+	
+	    // api routes for admin panel
+
+    $router->get('/api/cities', 'ApiController@cities')->name('admin.api.cities');
+    $router->get('/api/metro', 'ApiController@metro')->name('admin.api.metro');
+    $router->get('/api/companies', 'ApiController@company')->name('admin.api.companies');
 
 });

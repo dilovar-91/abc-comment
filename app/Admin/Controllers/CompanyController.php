@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Company;
+use App\Models\Metro;
+use App\Models\City;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -15,7 +17,7 @@ class CompanyController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Models\Company';
+    protected $title = 'КОмпании';
 
     /**
      * Make a grid builder.
@@ -39,8 +41,9 @@ class CompanyController extends AdminController
         $grid->column('updated_at', __('Updated at'));
         $grid->column('deleted_at', __('Deleted at'));
         $grid->column('active', __('Active'));
-        $grid->column('category_id', __('Category id'));
-        $grid->column('city_id', __('City id'));
+        $grid->city_id(__('Город'))->display(function($city_id) {
+            return \App\Models\City::find($city_id)->name;
+            });
         $grid->column('metro_id', __('Metro id'));
         $grid->column('latitude', __('Latitude'));
         $grid->column('longitude', __('Longitude'));
@@ -103,15 +106,25 @@ class CompanyController extends AdminController
         $form->text('website', __('Website'));
         $form->text('job_schedule', __('Job schedule'));
         $form->email('email', __('Email'));
-        $form->switch('active', __('Active'))->default(1);
-        $form->number('category_id', __('Category id'));
-        $form->number('city_id', __('City id'));
-        $form->number('metro_id', __('Metro id'));
+        $form->switch('active', __('Active'))->default(1);        
+        $form->select('city_id', 'Город')->options(function ($id) {
+            $city = City::find($id);        
+            if ($city) {
+                return [$city->id => $city->name];
+            }
+        })->ajax('/admin/api/cities');
+		$form->select('metro_id', __('admin.metro'))->options(function ($id) {
+            $metro = Metro::find($id);        
+            if ($metro) {
+                return [$metro->id => $metro->name];
+            }
+        })->ajax('/admin/api/metro'); 
         $form->text('latitude', __('Latitude'));
         $form->text('longitude', __('Longitude'));
         $form->text('keywords', __('Keywords'));
-        $form->text('pictures', __('Pictures'));
-        $form->number('rand_id', __('Rand id'));
+        //$form->text('pictures', __('Pictures'));
+		$form->multipleImage('pictures', __('Рисунок'))->sortable()->removable();
+        //$form->number('rand_id', __('Rand id'));
 
         return $form;
     }
